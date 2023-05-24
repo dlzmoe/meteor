@@ -1,0 +1,10 @@
+{{ partial "header.html" . }}
+
+<section>
+  <div class="single-title">{{ .Title }}</div>
+  <div class="post-content markdown-body">
+    {{ .Content }}
+    {{ partial "comment.html" . }}
+  </div>
+</section>
+{{ partial "footer.html" . }}

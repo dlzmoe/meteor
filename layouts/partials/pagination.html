@@ -1,0 +1,67 @@
+{{ $pag := $.Paginator }}
+
+{{ if .Site.Params.paginateOriginalStyle -}}
+<!-- paginate original style  -->
+<nav class="pagination">
+
+  {{ with $pag.Prev }}
+  <a class="prev" href="{{ .URL }}">
+    <i class="iconfont icon-left"></i>
+    <span class="prev-text">{{ i18n "prev" }}</span>
+  </a>
+  {{ end }}
+
+  {{ with $pag.Next }}
+  <a class="next" href="{{ .URL }}">
+    <span class="next-text">{{ i18n "next" }}</span>
+    <i class="iconfont icon-right"></i>
+  </a>
+  {{ end }}
+
+</nav>
+
+{{ else }}
+
+<!-- paginate numbered style  -->
+<!-- Number of links either side of the current page. -->
+{{ $adjacent_links := 3 }}
+
+<!-- $max_links = ($adjacent_links * 2) + 1 -->
+{{ $max_links := (add (mul $adjacent_links 2) 1) }}
+
+<!-- $lower_limit = $adjacent_links + 1 -->
+{{ $lower_limit := (add $adjacent_links 1) }}
+
+<!-- $upper_limit = $paginator.TotalPages - $adjacent_links -->
+{{ $upper_limit := (sub $pag.TotalPages $adjacent_links) }}
+
+<!-- 1 < page number <= $max_links -->
+{{ if and (gt $pag.TotalPages 1) (le $pag.TotalPages $max_links) }}
+<nav class="pagination">
+  {{ range $pag.Pagers }}
+  <li {{ if eq . $pag }} class="active" {{end}}>
+    <a href="{{ .URL }}">{{ .PageNumber }}</a>
+  </li>
+  {{ end }}
+</nav>
+
+<!-- page number > $max_links -->
+{{ else if gt $pag.TotalPages $max_links }}
+
+<nav class="pagination">
+  <li>
+    {{ if $pag.HasPrev }}
+    <a href="{{ $pag.Prev.URL }}">上一页</a>
+    {{ end }}
+  </li>
+
+  <li>
+    {{ if $pag.HasNext }}
+    <a href="{{ $pag.Next.URL }}">下一页</a>
+    {{ end }}
+  </li>
+
+</nav>
+{{ end }}
+
+{{ end }}

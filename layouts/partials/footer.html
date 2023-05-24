@@ -1,0 +1,48 @@
+</main>
+<footer>
+  <div>
+    © 2020 - <span id="year"></span>
+  </div>
+  <div>
+    <a href="https://beian.miit.gov.cn/" target="_blank">
+      <span>{{ .Site.Params.beian }}</span>
+    </a>
+    Powered by <a href="https://github.com/lovezsh">{{ .Site.Params.author }}</a>
+
+  </div>
+  <div>网站已经运行 <span id="days">0</span></div>
+  <div class="gotop">
+    ▲
+  </div>
+</footer>
+
+<script>
+  var s0 = '{{ .Site.Params.buildDate }}';
+  s1 = new Date(s0.replace(/-/g, "/"));
+  s2 = new Date();
+  var days = s2.getTime() - s1.getTime();
+
+  var date = new Date;
+  var year = date.getFullYear();
+  document.getElementById('year').innerHTML = year;
+
+
+  var BootDate = new Date("{{ .Site.Params.buildDate }}");
+  function ShowRunTime(id) {
+    var NowDate = new Date();
+    var RunDateM = parseInt(NowDate - BootDate);
+    var RunDays = Math.floor(RunDateM / (24 * 3600 * 1000));
+    var RunHours = Math.floor(RunDateM % (24 * 3600 * 1000) / (3600 * 1000));
+    var RunMinutes = Math.floor(RunDateM % (24 * 3600 * 1000) % (3600 * 1000) / (60 * 1000));
+    var RunSeconds = Math.round(RunDateM % (24 * 3600 * 1000) % (3600 * 1000) % (60 * 1000) / 1000);
+    var days = RunDays + "天" + RunHours + "时" + RunMinutes + "分" + RunSeconds + "秒";
+    document.getElementById(id).innerHTML = days;
+  }
+  ShowRunTime('days');
+  setInterval("ShowRunTime('days')", 1000);
+</script>
+
+{{ partial "scripts.html" . }}
+</body>
+
+</html>

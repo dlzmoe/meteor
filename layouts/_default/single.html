@@ -1,0 +1,37 @@
+{{ partial "header.html" . }}
+
+<section>
+  <div class="single-title">{{ .Title }}</div>
+  {{ if in .Site.Params.mainSections .Type }}
+  {{ if .Date }}
+  <time class="single-date" datetime="{{ .Date.Format " 2006-01-02 15:04:05 MST" }}">
+    {{ .Date.Format "2006年01月02日"}}
+  </time>
+  {{ end }}
+  {{ end }}
+
+  {{ .TableOfContents }}
+  <div class="post-content markdown-body" id="post-content">
+    {{ .Site.Params.postHeaderContent | safeHTML }}
+    {{ .Content }}
+  </div>
+
+  <!-- Post Tags -->
+  <!-- {{ if .Params.tags }}
+  {{ range .Params.tags }} {{ $href := print (absURL "tags/") (urlize .) }}
+  <a class="tag" href="{{ $href }}">{{ . }}</a>
+  {{ end }}
+  {{ end }} -->
+
+</section>
+
+
+{{ if in .Site.Params.mainSections .Type }}
+<!-- comment -->
+<section>
+  <h4>评论~</h4>
+  {{ partial "comment.html" . }}
+</section>
+{{ end }}
+
+{{ partial "footer.html" . }}

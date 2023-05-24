@@ -1,0 +1,16 @@
+{{ partial "header.html" . }}
+
+{{ range (where .Data.Pages "Type" "in" site.Params.mainSections).GroupByDate "2006" -}}
+<section>
+  <h2 style="margin:0;">{{ .Key }}</h2>
+  {{ range .Pages }}
+  <div class="arthive-item">
+    <time datetime="{{ .Date.Format " 01-02 15:04:05 MST" }}">
+      {{ .Date.Format "01月02日"}}</time>
+    <a href="{{ .RelPermalink }}" class="arthive-title">{{ .Title }}</a>
+   
+  </div>
+  {{ end }}
+</section>
+{{ end }}
+{{ partial "footer.html" . }}

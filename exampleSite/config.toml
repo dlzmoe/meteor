@@ -1,0 +1,48 @@
+baseURL = ""
+languageCode = "en-us"
+title = "子舒的博客"
+theme = "feed2"
+paginate = 9
+hasCJKLanguage = true
+summaryLength = 100
+
+[markup]
+  [markup.tableOfContents]  # 文章目录
+    endLevel = 3
+    ordered = false
+  [markup.highlight]
+    style ="github"    # 高亮风格
+    lineNos = false         # 是否显示行号
+  [markup.goldmark]         # 是否在md文件中渲染html代码
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[params]
+  title = "不如吃茶去"
+  logo = "https://img.zburu.com/author1.png"
+  author = "子舒"
+  favicon = "https://img.zburu.com/favicon2.png"
+  buildDate = "2020-06-14"
+  beian = "浙ICP备2022002453号-2"
+
+[permalinks]
+  blog = "/blog/:slug.html/"
+
+[[params.socials]]
+name = "归档"
+link = "/blog/"
+
+[[params.socials]]
+name = "留言"
+link = "/message/"
+
+[[params.socials]]
+name = "关于"
+link = "/about/"
+
+[[params.socials]]
+name = "实验室"
+link = "/lab/"

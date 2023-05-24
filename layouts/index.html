@@ -1,0 +1,19 @@
+{{ partial "header.html" . }}
+
+<div class="postlist">
+  {{ $pages := .Site.RegularPages }}
+  {{ $paginator := .Paginate ($pages) }}
+  {{ range $paginator.Pages }}
+  {{ $title := .Title }}
+  {{ $summary := .Summary }}
+  <div class="postitem">
+    <a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+    <div class="summary">{{ .Summary }}</div>
+    <time datetime="{{ .Date.Format " 2006-01-02 15:04:05 MST" }}">
+      {{ .Date.Format "2006年01月02日"}}</time>
+  </div>
+
+  {{ end }}
+</div>
+{{ partial "pagination.html" . }}
+{{ partial "footer.html" . }}
