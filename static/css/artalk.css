@@ -100,7 +100,7 @@
     width: 100% !important;
   }
 }
-.atk-copyright {
+.artalk > .atk-list > .atk-list-footer .atk-copyright {
   display: none;
 }
 

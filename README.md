@@ -1,9 +1,25 @@
-## hugo-themes
+## hugo-themes-meteor
 
 极简hugo主题。
 
 demo: https://han.ge
 
+---
+
+### 风格一
+
+```
+[params]
+  styleModule = "0"   # 0 or 1 两种不同风格样式
+```
+
 ![image](https://imgbed.netlify.app/images/image.2kq55nyy0w00.png)
 
-引入pjax无刷新技术，更加流畅，提升体验。
+### 风格二
+
+```
+[params]
+  styleModule = "1"   # 0 or 1 两种不同风格样式
+```
+
+![image](https://imgbed.netlify.app/images/1685028595353.6qdi3m29cis0.webp)
