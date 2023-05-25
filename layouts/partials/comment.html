@@ -1,0 +1,13 @@
+<link href="https://artalk.zburu.com/dist/Artalk.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ .Site.Params.staticPrefix }}{{ "css/artalk.css" | relURL }}">
+<script src="https://artalk.zburu.com/dist/Artalk.js"></script>
+<div id="Comments"></div>
+<script>
+  Artalk.init({
+    el: '#Comments',
+    pageKey: '',
+    pageTitle: '',
+    server: 'https://artalk.zburu.com',
+    site: '子舒的博客',
+  })
+</script>
