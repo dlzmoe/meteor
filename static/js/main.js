@@ -1,27 +1,3 @@
-// 黑夜模式
-function themesDark() {
-  var themes = localStorage.getItem('themes');
-  if (themes) {
-    if (themes == "light") {
-      $('.switch input[type="checkbox"]').attr('checked', 'checked');
-      $('html').removeClass('theme-dark');
-    } else {
-      $('.switch input[type="checkbox"]').removeAttr('checked');
-      $('html').addClass('theme-dark');
-    }
-  }
-  $('.switch input[type="checkbox"]').change(function () {
-    if ($(this).is(':checked')) {
-      localStorage.setItem('themes', 'light')
-      $('html').removeClass('theme-dark');
-    } else {
-      localStorage.setItem('themes', 'dark')
-      $('html').addClass('theme-dark');
-    }
-  });
-}
-themesDark();
-
 $(function () {
   $('.post-content a').attr('target', '_blank');
   $('#TableOfContents a').attr('target', '')
@@ -84,22 +60,4 @@ $(document).ready(function () {
     }
   })
 
-});
-
-// 创建一个图片懒加载实例
-function callback_loaded(el) {
-  if (el.getAttribute('data-src')) {
-    el.parentNode.classList.add('lazy-loaded');
-  }
-}
-
-window.addEventListener('DOMContentLoaded', function () {
-  var elements = document.querySelectorAll('.lazy');
-  if (typeof LazyLoad === 'function') {
-    var lazyLoadInstance = new LazyLoad({
-      elements_selector: '.lazy',
-      callback_loaded: callback_loaded
-    });
-    window.ll = lazyLoadInstance;
-  }
 });
