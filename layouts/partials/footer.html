@@ -1,19 +1,12 @@
 </main>
 <footer>
+  <div>© 2020 - <span id="year"></span></div>
   <div>
-    © 2020 - <span id="year"></span>
-  </div>
-  <div>
-    <a href="https://beian.miit.gov.cn/" target="_blank">
-      <span>{{ .Site.Params.beian }}</span>
-    </a>
+    <a href="https://beian.miit.gov.cn/" target="_blank"><span>{{ .Site.Params.beian }}</span></a>
     Powered by <a href="https://github.com/lovezsh">{{ .Site.Params.author }}</a>
-
   </div>
   <div>网站已经运行 <span id="days">0</span></div>
-  <div class="gotop">
-    ▲
-  </div>
+  <div class="gotop">▲</div>
 </footer>
 
 <script>
@@ -25,7 +18,6 @@
   var date = new Date;
   var year = date.getFullYear();
   document.getElementById('year').innerHTML = year;
-
 
   var BootDate = new Date("{{ .Site.Params.buildDate }}");
   function ShowRunTime(id) {
