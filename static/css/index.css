@@ -5,7 +5,7 @@
 body {
   width: 100%;
   box-sizing: border-box;
-  color: #212121;
+  color: #333;
   line-height: 1.75;
   overflow-y: scroll;
   padding: 0;
@@ -117,13 +117,14 @@ a:hover {
 }
 .postitem .title {
   text-decoration: none;
-  font-size: 1.6rem;
+  font-size: 1.35rem;
+  font-weight: 600;
 }
 .postitem time {
   font-size: 0.95rem;
 }
 .postitem .summary {
-  font-size: 0.95rem;
+  font-size: 1rem;
   margin: 10px 0;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -186,7 +187,8 @@ footer {
 
 .single-title {
   text-decoration: none;
-  font-size: 1.6rem;
+  font-size: 1.35rem;
+  font-weight: 600;
 }
 
 .single-date {
@@ -250,6 +252,9 @@ footer {
     top: 70%;
   }
 
+  header {
+    opacity: 1 !important;
+  }
   header .nav {
     display: block;
     position: fixed;
