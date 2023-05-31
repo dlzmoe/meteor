@@ -2,7 +2,7 @@
 
 极简hugo主题。
 
-demo: https://han.ge
+demo: https://zburu.com
 
 ---
 
