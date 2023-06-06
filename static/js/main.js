@@ -60,3 +60,15 @@ $(document).ready(function () {
     }
   })
 });
+
+function isMob() {
+  if ($(window).width() <= 1000) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+if (!isMob()) {
+  $('header').append($('footer'))
+}
