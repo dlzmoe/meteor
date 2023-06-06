@@ -28,21 +28,31 @@
   border: 1px solid #c6c6c6;
   padding: 1px 4px;
   border-radius: 3px;
+  position: absolute;
+  right: 0;
 }
 
 .atk-comment-children > .atk-comment-wrap > .atk-comment > .atk-main {
   flex-wrap: wrap;
   align-items: center;
   margin-left: 0;
-  background: #eee;
+  background: #f5f5f5;
   padding: 10px;
   border-radius: 4px;
+}
+.atk-comment-children > .atk-comment-wrap > .atk-comment > .atk-main .atk-content {
+  font-size: 15px;
 }
 .atk-comment-children > .atk-comment-wrap > .atk-comment > .atk-main .atk-main {
   padding: 10px 0;
 }
 .atk-comment-children > .atk-comment-wrap > .atk-comment > .atk-main .atk-header {
   margin: 0;
+  margin-bottom: 5px;
+}
+.atk-comment-children > .atk-comment-wrap > .atk-comment > .atk-main .atk-header a,
+.atk-comment-children > .atk-comment-wrap > .atk-comment > .atk-main .atk-header .atk-nick {
+  color: #333 !important;
 }
 .atk-comment-children > .atk-comment-wrap > .atk-comment > .atk-main .atk-footer {
   margin-top: 0;

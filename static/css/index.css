@@ -341,3 +341,9 @@ main section {
     padding: 0;
   }
 }
+.highlight pre {
+  border: 1px solid #cbcbcb;
+}
+.highlight pre * {
+  font-weight: 400 !important;
+}

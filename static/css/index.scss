@@ -383,3 +383,11 @@ footer {
     }
   }
 }
+
+.highlight pre {
+  border: 1px solid #cbcbcb;
+
+  * {
+    font-weight: 400 !important;
+  }
+}
