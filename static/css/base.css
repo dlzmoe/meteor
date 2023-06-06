@@ -135,6 +135,10 @@ details>*:nth-child(2) {
   margin-top: 15px;
 }
 
+#TableOfContents>ul>li>ul {
+  padding-left: 20px;
+}
+
 /* simplebox.min.css 图片灯箱css */
 :root {
   --time: 500ms;
