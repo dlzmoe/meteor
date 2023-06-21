@@ -112,13 +112,25 @@ a:hover {
   text-decoration: none;
   background: #fff;
 }
-.postitem:hover {
-  text-decoration: none;
-}
 .postitem .title {
   text-decoration: none;
   font-size: 1.35rem;
   font-weight: 600;
+  position: relative;
+  padding-bottom: 5px;
+}
+.postitem .title:hover::after {
+  width: 100%;
+}
+.postitem .title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #636363;
+  transition: all 0.2s linear;
 }
 .postitem .summary {
   font-size: 1rem;
@@ -217,9 +229,25 @@ footer {
 }
 
 .single-title {
+  display: inline-block;
   text-decoration: none;
   font-size: 1.35rem;
   font-weight: 600;
+  position: relative;
+  margin-bottom: 10px;
+}
+.single-title:hover::after {
+  width: 100%;
+}
+.single-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #636363;
+  transition: all 0.2s linear;
 }
 
 .single-date {
@@ -231,9 +259,15 @@ footer {
 
 .post-content {
   margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #999;
 }
 .post-content a {
   text-decoration: underline;
+  transition: all 0.1s linear;
+}
+.post-content a:hover {
+  background: #eeeeee;
 }
 
 .mob-menu {
