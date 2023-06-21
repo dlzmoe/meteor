@@ -54,6 +54,7 @@ $(document).ready(function () {
           $('#totalWords').html(totalWords);
         });
       });
+
     },
     error: function () {
       console.log('error')
@@ -72,3 +73,5 @@ function isMob() {
 if (!isMob()) {
   $('header').append($('footer'))
 }
+
+$("#searchTerm").focus();

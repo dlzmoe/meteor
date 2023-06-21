@@ -1,5 +1,5 @@
 :root {
-  --box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
+  --box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 body {
@@ -120,9 +120,6 @@ a:hover {
   font-size: 1.35rem;
   font-weight: 600;
 }
-.postitem time {
-  font-size: 0.95rem;
-}
 .postitem .summary {
   font-size: 1rem;
   margin: 10px 0;
@@ -130,6 +127,21 @@ a:hover {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+}
+
+.meta {
+  color: #666;
+  font-size: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  white-space: nowrap;
+}
+.meta p {
+  margin: 0;
+}
+.meta i {
+  padding: 0 10px;
 }
 
 .arthive-item {

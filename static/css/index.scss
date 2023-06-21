@@ -1,5 +1,5 @@
 :root {
-  --box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
+  --box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 body {
@@ -134,10 +134,6 @@ a {
     font-weight: 600;
   }
 
-  time {
-    font-size: 0.95rem;
-  }
-
   .summary {
     font-size: 1rem;
     margin: 10px 0;
@@ -145,6 +141,23 @@ a {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
+  }
+}
+
+.meta {
+  color: #666;
+  font-size: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  white-space: nowrap;
+
+  p {
+    margin: 0;
+  }
+
+  i {
+    padding: 0 10px;
   }
 }
 
@@ -391,3 +404,4 @@ footer {
     font-weight: 400 !important;
   }
 }
+

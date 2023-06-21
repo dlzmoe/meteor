@@ -43,3 +43,4 @@ function initiateSearch() {
   };
   xhr.send();
 }
+
