@@ -167,7 +167,6 @@ details>*:nth-child(2) {
 }
 
 .slb {
-  box-shadow: 2px 2px 12px 1px rgba(0, 0, 0, 0.06);
   cursor: -webkit-zoom-in;
   cursor: zoom-in;
 }

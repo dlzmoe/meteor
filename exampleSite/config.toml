@@ -1,7 +1,7 @@
-baseURL = ""
+baseURL = "https://zburu.com/"
 languageCode = "en-us"
 title = "子舒的博客"
-theme = "slider"
+theme = "meteor"
 paginate = 9
 hasCJKLanguage = true
 summaryLength = 100
@@ -22,12 +22,12 @@ summaryLength = 100
 
 [params]
   title = "不如吃茶去"
+  description = "子舒的博客，记录生活日常，技术笔记等。"
   logo = "https://img.zburu.com/author1.png"
   author = "子舒"
   favicon = "https://img.zburu.com/favicon.png"
   buildDate = "2020-06-14"
   beian = "浙ICP备2022002453号-2"
-  styleModule = "1"   # 0 or 1 两种不同风格样式
 
 [permalinks]
   blog = "/blog/:slug.html/"
@@ -47,3 +47,7 @@ link = "/about/"
 [[params.socials]]
 name = "实验室"
 link = "/lab/"
+
+[[params.socials]]
+name = "GPT"
+link = "/gpt/"

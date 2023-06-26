@@ -4,7 +4,7 @@
   <div class="single-title">{{ .Title }}</div>
   {{ if in .Site.Params.mainSections .Type }}
   {{ if .Date }}
-  <div class="meta">
+  <div class="meta page-meta">
     <p>发布于<time datetime="{{ .Date.Format " 2006-01-02 15:04:05 MST" }}">
         {{ .Date.Format "2006年01月02日"}}</time></p>
     <i>-</i>
@@ -22,11 +22,14 @@
   </div>
 
   <!-- Post Tags -->
-  <!-- {{ if .Params.tags }}
-  {{ range .Params.tags }} {{ $href := print (absURL "tags/") (urlize .) }}
-  <a class="tag" href="{{ $href }}">{{ . }}</a>
+  {{ if .Params.tags }}
+  <div class="tags">
+    <span>Tags: </span>
+    {{ range .Params.tags }} {{ $href := print (absURL "tags/") (urlize .) }}
+    <a href="{{ $href }}">{{ . }}</a>
+    {{ end }}
+  </div>
   {{ end }}
-  {{ end }} -->
 
 </section>
 

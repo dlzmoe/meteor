@@ -11,7 +11,7 @@ body {
   margin: 0;
   background: #eee;
   font-size: 16px;
-  color: #2d2d2d;
+  color: #374151;
 }
 
 main section,
@@ -257,8 +257,11 @@ footer {
   border-bottom: 1px solid #d3d3d3;
 }
 
+.page-meta {
+  margin-bottom: 10px;
+}
+
 .post-content {
-  margin-top: 20px;
   padding-top: 10px;
   border-top: 1px solid #999;
 }
@@ -392,4 +395,17 @@ main section {
 }
 .highlight pre * {
   font-weight: 400 !important;
+}
+
+.tags {
+  margin-top: 1em;
+}
+.tags a {
+  display: inline-block;
+  text-decoration: underline;
+  margin-right: 10px;
+  transition: all 0.1s linear;
+}
+.tags a:hover {
+  font-weight: bold;
 }

@@ -12,7 +12,7 @@ body {
   background: #eee;
   // background: #fff;
   font-size: 16px;
-  color: #2d2d2d;
+  color: #374151;
 }
 
 main section,
@@ -138,7 +138,7 @@ a {
     }
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: 0;
       left: 0;
@@ -270,7 +270,7 @@ footer {
   }
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
@@ -288,8 +288,11 @@ footer {
   border-bottom: 1px solid #d3d3d3;
 }
 
+.page-meta {
+  margin-bottom: 10px;
+}
+
 .post-content {
-  margin-top: 20px;
   padding-top: 10px;
   border-top: 1px solid #999;
 
@@ -444,5 +447,20 @@ footer {
 
   * {
     font-weight: 400 !important;
+  }
+}
+
+.tags {
+  margin-top: 1em;
+
+  a {
+    display: inline-block;
+    text-decoration: underline;
+    margin-right: 10px;
+    transition: all 0.1s linear;
+
+    &:hover {
+      font-weight: bold;
+    }
   }
 }
