@@ -1,45 +1,43 @@
 {{ partial "header.html" . }}
 
-<section>
-  <div class="single-title">{{ .Title }}</div>
-  {{ if in .Site.Params.mainSections .Type }}
-  {{ if .Date }}
-  <div class="meta page-meta">
-    <p>发布于<time datetime="{{ .Date.Format " 2006-01-02 15:04:05 MST" }}">
-        {{ .Date.Format "2006年01月02日"}}</time></p>
-    <i>-</i>
-    <p>阅读量: <span id="ArtalkPV" data-page-key="{{ .RelPermalink }}"></span></p>
-    <i>-</i>
-    <p>评论数: <span id="ArtalkCount" data-page-key="{{ .RelPermalink }}"></span></p>
-  </div>
-  {{ end }}
-  {{ end }}
+<div class="main detail">
+  <header class="header">
+    <h1 class="header-title">{{ .Title }}</h1>
+    {{ if in .Site.Params.mainSections .Type }}
+    {{ if .Date }}
+    <div class="post-meta">
+      发布于 <time datetime="{{ .Date.Format " 2006-01-02 15:04:05 MST" }}"> {{ .Date.Format
+        "2006-01-02"}}</time>
+    </div>
+    {{ end }}
+    {{ end }}
+  </header>
+  <br>
+  <script type="module" src="https://cdn.jsdelivr.net/gh/emaction/frontend.dist@1.0.9/bundle.js"></script>
+  <emoji-reaction></emoji-reaction>
+  <details class="toc" open>
+    <summary><b>Table of Contents</b></summary>
+    {{ .TableOfContents }}
+  </details>
 
-  {{ .TableOfContents }}
-  <div class="post-content markdown-body" id="post-content">
+  <article class="post-content markdown-body">
     {{ .Site.Params.postHeaderContent | safeHTML }}
     {{ .Content }}
-  </div>
+  </article>
 
   <!-- Post Tags -->
   {{ if .Params.tags }}
-  <div class="tags">
-    <span>Tags: </span>
-    {{ range .Params.tags }} {{ $href := print (absURL "tags/") (urlize .) }}
-    <a href="{{ $href }}">{{ . }}</a>
+  <ul class="post-tags">
+    {{ range .Params.tags }} {{ $href := print (absURL "/tags/") (urlize .) }}
+    <li><a href="{{ $href }}">{{ . }}</a></li>
     {{ end }}
-  </div>
+  </ul>
   {{ end }}
 
-</section>
+  <div class="end">END</div>
 
-
-{{ if in .Site.Params.mainSections .Type }}
-<!-- comment -->
-<section>
-  <h4>评论~</h4>
+  {{ if in .Site.Params.mainSections .Type }}
   {{ partial "comment.html" . }}
-</section>
-{{ end }}
-
+  {{ end }}
+</div>
 {{ partial "footer.html" . }}

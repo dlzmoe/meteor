@@ -1,11 +1,10 @@
 $(function () {
-  $('.post-content a').attr('target', '_blank');
-  $('#TableOfContents a').attr('target', '')
   $('.post-content img').addClass('slb');
+  $('.post-content iframe').wrap('<div class="iframe"></div>');
+  
   $('.slb').simplebox({
     fadeSpeed: 100
   });
-  $('iframe').wrap('<p class="iframe"></p>');
 
   $(document).on('scroll', function () {
     var $pageScrollTop = $(this).scrollTop()
@@ -22,56 +21,43 @@ $(function () {
     })
   })
 
-  $('.mob-menu').click(function () {
+  $('.menu-icon').click(function () {
     $(this).toggleClass('act');
-    $('.nav').toggleClass('active');
+    $('.menu .trigger').slideToggle();
   })
 
-  $('.nav a').each(function () {
+  $('nav ul a').each(function () {
     if ($(this).attr('href') == window.location.pathname) {
       $(this).addClass('active');
     }
   })
+
 })
 
-// 统计总数字和文章数
-$(document).ready(function () {
-  $.ajax({
-    url: '/index.json',
-    type: 'get',
-    dataType: 'json',
-    success: function (data) {
-      const pageUrls = data;
-      const totalNum = pageUrls.length;
-      $('#totalNum').html(totalNum);
-      let totalWords = 0;
-      pageUrls.forEach(urlObj => {
-        $.get(urlObj.permalink, function (data) {
-          const content = data.replace(/(<([^>]+)>)/gi, " ").replace(/[^\w\s]/gi, " ");
-          const words = content.split(" ");
-          const wordCount = words.filter(word => word !== "").length;
-          totalWords += wordCount;
-          $('#totalWords').html(totalWords);
-        });
-      });
+$("#searchTerm").focus();
 
-    },
-    error: function () {
-      console.log('error')
+// 黑夜模式
+function themedark() {
+  var themedark = localStorage.getItem('themedark');
+  if (themedark == 'dark') {
+    $('html').addClass('dark');
+  }
+  $('#theme-toggle').click(function () {
+    $('html').toggleClass('dark');
+    if ($('.dark').length > 0) {
+      localStorage.setItem('themedark', 'dark');
+    } else {
+      localStorage.setItem('themedark', 'light');
     }
-  })
-});
 
-function isMob() {
-  if ($(window).width() <= 1000) {
-    return true;
-  } else {
-    return false;
+  })
+}
+themedark();
+
+// 显示目录
+function TableOfContents(){
+  if($('#TableOfContents').html() != ''){
+    $('.toc').addClass('act');
   }
 }
-
-if (!isMob()) {
-  $('header').append($('footer'))
-}
-
-$("#searchTerm").focus();
+TableOfContents();

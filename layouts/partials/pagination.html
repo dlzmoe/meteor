@@ -48,20 +48,17 @@
 <!-- page number > $max_links -->
 {{ else if gt $pag.TotalPages $max_links }}
 
-<nav class="pagination">
-  <li>
-    {{ if $pag.HasPrev }}
-    <a href="{{ $pag.Prev.URL }}">上一页</a>
-    {{ end }}
-  </li>
+<div class="page">
+  {{ if $pag.HasPrev }}
+  <a href="{{ $pag.Prev.URL }}" class="prev">上一页</a>
+  {{ end }}
 
-  <li>
-    {{ if $pag.HasNext }}
-    <a href="{{ $pag.Next.URL }}">下一页</a>
-    {{ end }}
-  </li>
+  {{ if $pag.HasNext }}
+  <a href="{{ $pag.Next.URL }}" class="next">下一页</a>
+  {{ end }}
 
-</nav>
+
+</div>
 {{ end }}
 
 {{ end }}

@@ -3,37 +3,65 @@
 {{ partial "head.html" . }}
 
 <body>
-  <div class="body">
-    <header>
-      <a href="/" class="logo">{{ .Site.Title }}</a>
-      <div class="header-title"></div>
-      <div class="nav">
-        <a href="/">首页</a>
-        {{ range .Site.Params.socials }}
-        <a href="{{ .link }}">{{ .name }}</a>
-        {{ end }}
-        <div class="icon">
-          <a href="/index.xml" target="_blank"><svg xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-rss" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-              stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-              <path d="M5 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
-              <path d="M4 4a16 16 0 0 1 16 16"></path>
-              <path d="M4 11a9 9 0 0 1 9 9"></path>
-            </svg></a>
-          <a href="/search"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search"
-              width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-              <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
-              <path d="M21 21l-6 -6"></path>
-            </svg></a>
+  <div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+      <!-- <a href="/">{{ .Site.Params.Title }}</a> -->
+      <a href="/" class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="feather feather-home">
+          <title>Home</title>
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+      </a>
+      <label for="menu-trigger">
+        <span class="menu-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none"
+            viewBox="0 0 14 14">
+            <title>Menu</title>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path>
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z">
+            </path>
+          </svg>
+        </span>
+      </label>
+
+      <div class="trigger">
+        <ul class="trigger-container">
+          {{ range .Site.Params.socials }}
+          <li>
+            <a class="menu-link" href="{{ .link }}" title="{{ .name }}">{{ .name }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      
+        <div class="logo-switches">
+          <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+            <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
         </div>
       </div>
+    </nav>
+  </div>
 
-
-      <div class="mob-menu">
-        <em></em><em></em><em></em>
-      </div>
-    </header>
-    <main class="main" id="pjax-container">
+  <main class="wrapper">
+    <div class="content">

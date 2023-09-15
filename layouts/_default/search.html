@@ -1,7 +1,9 @@
 {{ partial "header.html" . }}
 
-<section>
-  <div class="single-title">{{ .Title }}</div>
+<div class="main">
+  <header class="header">
+    <h1 class="header-title">{{ .Title }}</h1>
+  </header>
   <div class="post-content markdown-body">
     {{ .Content }}
     <div id="search">
@@ -13,5 +15,5 @@
       </div>
     </div>
   </div>
-</section>
+</div>
 {{ partial "footer.html" . }}

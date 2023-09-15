@@ -1,13 +1,3 @@
-<script>
- Artalk.loadCountWidget({
-    server: 'https://artalk.zburu.com',
-    site: '子舒的博客',
-  })
-</script>
 <script src="{{ .Site.Params.staticPrefix }}{{ "js/simplebox.min.js" | relURL }}"></script>
 <script src="{{ .Site.Params.staticPrefix }}{{ "js/search.js" | relURL }}"></script>
 <script src="{{ .Site.Params.staticPrefix }}{{ "js/main.js" | relURL }}"></script>
-<script src="{{ .Site.Params.staticPrefix }}{{ "js/jquery.pjax.js" | relURL }}"></script>
-<script>
-  $(document).pjax('a', '#pjax-container')
-</script>

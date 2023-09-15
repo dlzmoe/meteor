@@ -1,10 +1,13 @@
-<div id="Comments"></div>
+<hr style="margin-top: 40px; margin-bottom: 40px;" />
+
+<div id="tcomment"></div>
+<script src="https://cdn.staticfile.org/twikoo/1.6.20/twikoo.all.min.js"></script>
+<link rel="stylesheet" href="{{ .Site.Params.staticPrefix }}{{ "css/twikoo.css" | relURL }}">
 <script>
-  Artalk.init({
-    el: '#Comments',
-    pageKey: '',
-    pageTitle: '',
-    server: 'https://artalk.zburu.com',
-    site: '子舒的博客',
+  twikoo.init({
+    envId: '',
+    el: '#tcomment',
+    lang: 'zh-CN',
+    includeReply: true,
   })
 </script>

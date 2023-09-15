@@ -1,16 +1,21 @@
 {{ partial "header.html" . }}
+<script>$('body').addClass('list')</script>
 
-{{ range (where .Data.Pages "Type" "in" site.Params.mainSections).GroupByDate "2006" -}}
-<section>
-  <h2 style="margin:0;">{{ .Key }}</h2>
+<div class="main">
+  <header class="header">
+    <h1 class="header-title">{{ .Title }}</h1>
+  </header>
+
+  {{ range (where .Data.Pages "Type" "in" site.Params.mainSections).GroupByDate "2006" -}}
+  <h2 style="margin-bottom:10px;">{{ .Key }}</h2>
   {{ range .Pages }}
-  <div class="arthive-item">
-    <time datetime="{{ .Date.Format " 01-02 15:04:05 MST" }}">
-      {{ .Date.Format "01月02日"}}</time>
-    <a href="{{ .RelPermalink }}" class="arthive-title">{{ .Title }}</a>
-  </div>
+  <article class="post-item">
+    <h4 class="post-item-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
+    <time class="post-item-meta" datetime="{{ .Date.Format " 2006-01-02 15:04:05 MST" }}">{{ .Date.Format "01/02, 2006"}}</time>
+  </article>
   {{ end }}
-</section>
 
-{{ end }}
+  {{ end }}
+</div>
+
 {{ partial "footer.html" . }}

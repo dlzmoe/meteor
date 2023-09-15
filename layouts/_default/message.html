@@ -1,10 +1,14 @@
 {{ partial "header.html" . }}
 
-<section>
-  <div class="single-title">{{ .Title }}</div>
-  <div class="post-content markdown-body">
+<div class="main details">
+  <header class="header">
+    <h1 class="header-title">{{ .Title }}</h1>
+  </header>
+  <article class="post-content markdown-body">
+    {{ .Site.Params.postHeaderContent | safeHTML }}
     {{ .Content }}
-    {{ partial "comment.html" . }}
-  </div>
-</section>
+  </article>
+  {{ partial "comment.html" . }}
+</div>
+
 {{ partial "footer.html" . }}
