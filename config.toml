@@ -7,15 +7,14 @@ hasCJKLanguage = true
 summaryLength = 99999
 
 [markup]
-  [markup.tableOfContents]  # 文章目录
-    endLevel = 3
-    ordered = false
   [markup.highlight]
-    style ="github"    # 高亮风格
-    lineNos = false         # 是否显示行号
-  [markup.goldmark]         # 是否在md文件中渲染html代码
-    [markup.goldmark.renderer]
-      unsafe = true
+    noClasses = false
+  [markup.goldmark.renderer]
+    unsafe = true
+	[markup.tableOfContents]
+		startLevel = 2 # ToC starts from H2
+		endLevel = 4 # ToC ends at H4
+		ordered = false # generates <ul> instead of <ol>
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
@@ -26,22 +25,27 @@ summaryLength = 99999
   author = "子舒"
   favicon = "https://imgurl.zishu.me/favicon2.png"
   buildDate = "2020-06-14"
+  twikooID = ""
 
 [permalinks]
   blog = "/blog/:slug.html/"
 
 [[params.socials]]
-name = "归档"
+name = "Home"
+link = "/"
+
+[[params.socials]]
+name = "Posts"
 link = "/blog/"
 
 [[params.socials]]
-name = "关于"
+name = "Message"
+link = "/message/"
+
+[[params.socials]]
+name = "About"
 link = "/about/"
 
 [[params.socials]]
 name = "Search"
 link = "/search/"
-
-[[params.socials]]
-name = "RSS"
-link = "/index.xml"
