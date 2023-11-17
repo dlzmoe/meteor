@@ -1,10 +1,10 @@
-baseURL = ""
+baseURL = "https://zishu.me"
 languageCode = "en-us"
 title = "子舒的博客"
-theme = "meteor"  
-paginate = 7
+theme = "meteor"
+paginate = 20
 hasCJKLanguage = true
-summaryLength = 99999
+summaryLength = 100
 
 [markup]
   [markup.highlight]
@@ -19,33 +19,35 @@ summaryLength = 99999
 [outputs]
   home = ["HTML", "RSS", "JSON"]
 
+[permalinks]
+  blog = "/blog/:slug.html/"
+  
 [params]
   title = "zishu.me"
   logo = "https://imgurl.zishu.me/author.png"
   author = "子舒"
-  favicon = "https://imgurl.zishu.me/favicon2.png"
+  favicon = "https://imgurl.zishu.me/favicon.ico"
   buildDate = "2020-06-14"
   twikooID = ""
 
-[permalinks]
-  blog = "/blog/:slug.html/"
-
 [[params.socials]]
-name = "Home"
+name = "首页"
 link = "/"
 
 [[params.socials]]
-name = "Posts"
+name = "归档"
 link = "/blog/"
 
 [[params.socials]]
-name = "Message"
+name = "周刊"
+link = "/categories/周刊/"
+
+[[params.socials]]
+name = "留言"
 link = "/message/"
 
 [[params.socials]]
-name = "About"
+name = "关于"
 link = "/about/"
 
-[[params.socials]]
-name = "Search"
-link = "/search/"
+

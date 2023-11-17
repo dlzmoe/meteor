@@ -1,43 +1,39 @@
 {{ partial "header.html" . }}
-
-<div class="main detail">
-  <header class="header">
+<main>
+  <div class="header">
     <h1 class="header-title">{{ .Title }}</h1>
+
     {{ if in .Site.Params.mainSections .Type }}
     {{ if .Date }}
     <div class="post-meta">
-      发布于 <time datetime="{{ .Date.Format " 2006-01-02 15:04:05 MST" }}"> {{ .Date.Format
-        "2006-01-02"}}</time>
+      发布于 <time datetime="{{ .Date.Format " 2006-01-02 15:04:05 MST" }}">{{ .Date.Format "2006-01-02"}}</time>
     </div>
     {{ end }}
     {{ end }}
-  </header>
-  <br>
-  <script type="module" src="https://cdn.jsdelivr.net/gh/emaction/frontend.dist@1.0.9/bundle.js"></script>
-  <emoji-reaction></emoji-reaction>
-  <details class="toc" open>
-    <summary><b>Table of Contents</b></summary>
-    {{ .TableOfContents }}
-  </details>
+  </div>
 
   <article class="post-content markdown-body">
+    {{ if in .Site.Params.mainSections .Type }}
+    {{ .TableOfContents }}
+    {{ end }}
+    
     {{ .Site.Params.postHeaderContent | safeHTML }}
     {{ .Content }}
   </article>
 
   <!-- Post Tags -->
   {{ if .Params.tags }}
-  <ul class="post-tags">
+  <div class="post-tag">
     {{ range .Params.tags }} {{ $href := print (absURL "/tags/") (urlize .) }}
-    <li><a href="{{ $href }}">{{ . }}</a></li>
+    <a href="{{ $href }}">#{{ . }}</a>
     {{ end }}
-  </ul>
+  </div>
   {{ end }}
-
-  <div class="end">END</div>
 
   {{ if in .Site.Params.mainSections .Type }}
   {{ partial "comment.html" . }}
   {{ end }}
-</div>
+
+</main>
+
 {{ partial "footer.html" . }}

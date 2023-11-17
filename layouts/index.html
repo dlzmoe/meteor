@@ -1,34 +1,43 @@
 {{ partial "header.html" . }}
 
-<div class="author">
-  <h2 class="author-name">zishu.me 😁</h2>
-  <p class="author-bio">我是子舒。<br>
-    前端程序员，独立博客作者，骑行爱好者，摄影爱好者，INFJ人格。<br>
-    现在生活工作在杭州。<br>
-    这是我在闲暇时间写的博客，记录生活。</p>
-</div>
+{{ $articleCount := len .Site.RegularPages }}
+{{ $totalWordCount := 0 }}
+{{ range .Site.Pages }}
+{{ $totalWordCount = add $totalWordCount .WordCount }}
+{{ end }}
 
-<main aria-label="Content">
-  <h3 class="posts-item-note" aria-label="Recent Posts">Recent Posts</h3>
-
-  {{ $pages := .Site.RegularPages }}
-  {{ $paginator := .Paginate ($pages) }}
-  {{ range $paginator.Pages }}
-  {{ $title := .Title }}
-  {{ $summary := .Summary }}
-
-  <article class="post-item">
-    <h4 class="post-item-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
-    <time class="post-item-meta" datetime="{{ .Date.Format " 2006-01-02 15:04:05 MST" }}">{{ .Date.Format "01/02, 2006"}}</time>
-    <!-- <div class="entry-content">
+<body>
+  <div class="aboutme">
+    <div class="container">
+      <div class="img"><img src="https://imgurl.zishu.me/author.png" alt="author"></div>
+      <div class="info">
+        <p>欢迎来到我的个人网站，记录了一些个人心得和笔记。 --- 子舒</p>
+        <p>已经写了 {{ $articleCount }} 篇文章，共 {{ $totalWordCount }} 字。</p>
+        <a href="/index.xml" class="rss" target="_blank">订阅 RSS</a>
+      </div>
+    </div>
+  </div>
+  <main>
+    <ul class="blog-posts">
+      {{ $pages := .Site.RegularPages }}
+      {{ $paginator := .Paginate ($pages) }}
+      {{ range $paginator.Pages }}
+      {{ $title := .Title }}
+      {{ $summary := .Summary }}
+      <li>
+        <span>
+          <time datetime="{{ .Date.Format " 2006-01-02 15:04:05 MST" }}">{{ .Date.Format "2006.01.02"}}</time>
+        </span>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <!-- <div class="entry-content">
       <p>{{ .Summary }}</p>
     </div> -->
-  </article>
+      </li>
+      {{ end }}
+    </ul>
 
-  {{ end }}
+    <div class="readmore"><a href="/blog/">查看全部文章</a></div>
+    <!-- {{ partial "pagination.html" . }} -->
 
-  <p><a href="/blog/">See all posts</a></p>
-
-  <!-- {{ partial "pagination.html" . }} -->
-</main>
-{{ partial "footer.html" . }}
+  </main>
+  {{ partial "footer.html" . }}

@@ -1,9 +1,9 @@
 {{ partial "header.html" . }}
 
-<div class="main">
-  <header class="header">
+<main>
+  <div class="header">
     <h1 class="header-title">{{ .Title }}</h1>
-  </header>
+  </div>
   <div class="post-content markdown-body">
     {{ .Content }}
     <div id="search">
@@ -15,5 +15,6 @@
       </div>
     </div>
   </div>
-</div>
+</main>
+
 {{ partial "footer.html" . }}

@@ -1,0 +1,14 @@
+{{ partial "header.html" . }}
+
+<main>
+  <div class="header">
+    <h1 class="header-title">{{ .Title }}</h1>
+  </div>
+  <article class="post-content markdown-body nolist">
+    {{ .Site.Params.postHeaderContent | safeHTML }}
+    {{ .Content }}
+  </article>
+</main>
+
+
+{{ partial "footer.html" . }}

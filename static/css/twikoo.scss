@@ -2,10 +2,16 @@
   background: #f3f3f3;
   padding: 10px;
   border-radius: 5px;
+
+  p {
+    margin: 5px 0;
+  }
 }
 
-.dark {
-  .tk-comments .tk-content {
-    background: #23252a;
-  }
+.tk-avatar .tk-avatar-img {
+  vertical-align: baseline;
+}
+
+.tk-input .el-textarea__inner {
+  font-family: inherit;
 }
